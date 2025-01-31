@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <!-- 🔹 GIF ANIMADO NO TOPO DA ABA CONTATO -->
+        <img src="images/gif/gif lan-rouse.gif" alt="Animação Hacker do Bem" class="banner-gif">
+        
+        <h1>Lan House - Sem Limites</h1>
+        <br>
+        <img src="images/Logo.png" alt="Lan House Logo" width="100" height="100" class="logo">
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+    <main>
+        <div class="gif-contato">
+
+        </div>
+        <section> 
+            <div class="contato-container">
+                <div class="contato">
+                    <a href="https://wa.me/+555198733012" target="_blank" class="whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    
+                    <a href="https://t.me/+555198733012" target="_blank" class="telegram">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                </div>
+                <br><br>
+                <h3 class="titulo-endereco">Nosso Endereço</h3>
+                <iframe 
+                    class="mapa"
+                    src="https://www.google.com/maps?q=Rua%20Fl%C3%A1vio%20Santana,%20-%20(Antiga%20Rua%20X-4),%20N%C2%BA.955,%20Bairro:%20Colina%20-%20Gua%C3%ADba%20/%20RS.%20-%20CEP:%2092700-555&output=embed" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+                
+                <br>
+                <br>
+        </section>
+    </main>
+    <footer>
+        <p> 2025 Lan House - Sem Limites. Todos os direitos reservados.</p>
+    </footer>
+    <button id="btnTopo" onclick="subirAoTopo()">▲</button>
+    <script>
+        function subirAoTopo() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    
+        window.onscroll = function() {
+            let botao = document.getElementById("btnTopo");
+            let alturaPagina = document.documentElement.scrollHeight;
+            let alturaTela = window.innerHeight;
+            let posicaoAtual = window.scrollY + alturaTela;
+    
+            // Se o usuário chegar ao fim da página, mostra o botão
+            if (posicaoAtual >= alturaPagina - 10) {
+                botao.classList.add("mostrar-botao");
+            } else {
+                botao.classList.remove("mostrar-botao");
+            }
+        };
+    </script>
+</body>
+</html>

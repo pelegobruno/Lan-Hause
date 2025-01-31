@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Lan House</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="papel-de-parede"></div> <!-- Área do papel de parede -->
+        <br><br>
+        <br>
+        <img src="images/Logo.png" alt="Lan House Logo" width="100" height="100" class="logo">
+        <nav>
+            <br><br><br><br>
+            <a href="index.html">Início</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="servicos-container">
+            <h2 class="titulo-servicos">🛠️ Nossos Serviços</h2>
+            <div class="servicos-box">
+                <ul>
+                    <li>📄 <strong>Impressões em Papel Foto</strong> - Colorida ou Preto & Branco!</li>
+                    <li>📑 <strong>Currículos</strong> - Criação, alterações e envio digital</li>
+                    <li>📦 <strong>Materiais Diversos</strong> - Plásticos, DVDs, CDs</li>
+                    <li>🎵 <strong>Transformação de Músicas</strong> - MP4 para MP3</li>
+                    <li>🎧 <strong>Acessórios e Jogos</strong> - Fones, acesso a computadores e games</li>
+                    <li>📜 <strong>Plastificação de Documentos</strong> - Cartão SUS, Título de Eleitor</li>
+                    <li>🎞️ <strong>Montagem de DVD Personalizado</strong></li>
+                </ul>
+        
+                <!-- Botão para mostrar/esconder detalhes -->
+                <button id="toggleDetalhes">Ver detalhes ⬇️</button>
+        
+                <!-- Detalhes dos serviços -->
+                <div id="detalhesServicos" class="detalhes">
+                    <p><strong>📄 Impressões:</strong></p>
+                    <ul>
+                        <li>📸 Papel Foto Adesivo Brilhante / Fosco 180g → R$9,90 cada</li>
+                        <li>📄 Papel Ofício Colorido → R$4,50 cada</li>
+                        <li>⚫ Papel Ofício Preto & Branco → R$1,50 cada</li>
+                    </ul>
+        
+                    <p><strong>📑 Currículos:</strong></p>
+                    <ul>
+                        <li>📝 Criação de Currículo novo → R$17,00</li>
+                        <li>✏️ Alterações → R$6,00</li>
+                        <li>📧 Reenvio via E-mail ou WhatsApp → R$4,50</li>
+                    </ul>
+        
+                    <p><strong>📦 Materiais Diversos:</strong></p>
+                    <ul>
+                        <li>📂 Plásticos para documentos → R$1,00 cada</li>
+                        <li>💿 DVD's Virgens → R$4,50 cada (Acima de 10 unidades: R$3,50 cada)</li>
+                        <li>📀 CD's Virgens → R$4,50 cada (Acima de 10 unidades: R$3,50 cada)</li>
+                    </ul>
+        
+                    <p><strong>🎵 Transformação de Músicas:</strong></p>
+                    <ul>
+                        <li>🎶 Conversão de MP4 para MP3 (100 músicas) → R$99,90</li>
+                        <li>💾 Gravação de músicas em PEN DRIVE → R$1,00 cada (Acima de 100 músicas: R$1,50 cada)</li>
+                    </ul>
+        
+                    <p><strong>🎧 Acessórios e Jogos:</strong></p>
+                    <ul>
+                        <li>🎧 Fones de ouvido → R$29,90 cada</li>
+                        <li>💻 Acesso aos Computadores (PC's) → R$9,90 por hora</li>
+                        <li>🎮 Jogos de PlayStation 1 e 2 → R$13,90 cada</li>
+                        <li>🕹️ Jogos de PlayStation 3 e XBOX 360 → Sob encomenda (50% adiantado)</li>
+                    </ul>
+        
+                    <p><strong>📜 Plastificação de Documentos:</strong></p>
+                    <ul>
+                        <li>📄 Cartão SUS / Título de Eleitor → R$4,50 cada</li>
+                        <li>📜 Folhas Ofício A4 → R$9,90 cada</li>
+                    </ul>
+        
+                    <p><strong>🎞️ Montagem de DVD Personalizado:</strong></p>
+                    <ul>
+                        <li>🎥 Montagem de um DVD com seus vídeos + músicas de fundo → R$69,90</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <br>
+    </main>
+    <footer>
+            <p> 2025 Lan House - Sem Limites. Todos os direitos reservados.</p>
+    </footer>
+    <button id="btnTopo" onclick="subirAoTopo()">▲</button>
+    <script src="script.js"></script>
+    <script>
+        function subirAoTopo() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+    
+        window.onscroll = function() {
+            let botao = document.getElementById("btnTopo");
+            let alturaPagina = document.documentElement.scrollHeight;
+            let alturaTela = window.innerHeight;
+            let posicaoAtual = window.scrollY + alturaTela;
+    
+            // Se o usuário chegar ao fim da página, mostra o botão
+            if (posicaoAtual >= alturaPagina - 10) {
+                botao.classList.add("mostrar-botao");
+            } else {
+                botao.classList.remove("mostrar-botao");
+            }
+        };
+    </script>   
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - Lan House Sem Limites</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="music.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Lan House - Sem Limites</h1>
+        <br><br><br>
+        <img src="images/Logo.png" alt="Lan House Logo" class="logo">
+        <nav class="menu-music">
+            <br>
+            <br>
+            
+            <a href="index.html">Início</a>
+        </nav>
+    </header>  
+
+    <main>
+        <section class="music-container">
+            <h1>🎶Bem-vindo à Nossa Área de Música! </h1>
+            <br><br><br>
+            <h2>Ouça suas músicas favoritas diretamente do nosso site</h2>
+            <p>Escolha uma música da nossa playlist ou acesse sua plataforma preferida.</p>
+
+            <!-- 🎧 Player de Música -->
+            <div class="player-container">
+                <audio id="player" controls>
+                    <source src="musicas/musica1.mp3" type="audio/mp3">
+                    Seu navegador não suporta o elemento de áudio.
+                </audio>
+            </div>
+
+            <!-- 📌 Links para Playlists Externas -->
+<div class="playlist-links">
+    <h3>Acesse Outras Playlists:</h3>
+    <a href="https://open.spotify.com/" target="_blank" class="btn-externo spotify">
+        <i class="fab fa-spotify"></i> Spotify
+    </a>
+    <a href="https://music.youtube.com/" target="_blank" class="btn-externo youtube">
+        <i class="fab fa-youtube"></i> YouTube Music
+    </a>
+    <a href="https://www.deezer.com/" target="_blank" class="btn-externo deezer">
+        <i class="fab fa-deezer"></i> Deezer
+    </a>
+</div>
+<BR><BR></BR></BR>
+<!-- 🎵 Botão Extra para Interação -->
+<div class="extra-button-container">
+    <button id="discover-music">🎧 Descubra Novas Músicas!</button>
+</div>
+
+
+            <!-- 📂 Lista de Músicas Locais -->
+            <div class="playlist-local">
+                <!-- 🎵 Coluna 1 -->
+                <div class="coluna-playlist">
+                    <h3>🎶 Top 10 Musicas da Semana</h3>
+                    <button onclick="tocarMusica('music/Ice Mc - It’S A Rainy Day my-free-mp3s.com .mp3')">Ice Mc - It’S A Rainy</button>
+                    <button onclick="tocarMusica('music/Guru Josh Project - Infinity 2008 (Klaas Vocal Edit) (Klaas Vocal Edit) my-free-mp3s.com .mp3')">Guru Josh Project - Infinity 2008</button>
+                    <button onclick="tocarMusica('music/Jason Parker - Around the World (La La La La La).mp3')">Jason Parker - Around the World</button>
+                    <button onclick="tocarMusica('music/LMFAO - Sexy And I Know It my-free-mp3s.com .mp3')">LMFAO - Sexy And I Know It</button>
+                    <button onclick="tocarMusica('music/Justin Timberlake - Rock Your Body my-free-mp3s.com .mp3')">Justin Timberlake - Rock Your Body</button>
+                    <button onclick="tocarMusica('music/La Bouche - Be My Lover (Club Mix) (Club Mix) my-free-mp3s.com .mp3')">La Bouche - Be My Lover</button>
+                    <button onclick="tocarMusica('music/Los Del Rio - Macarena my-free-mp3s.com .mp3')">Los Del Rio - Macarena</button>
+                    <button onclick="tocarMusica('music/50cent feat dr dre - 50 cent - in da club.mp3')">50cent in da club</button>
+                    <button onclick="tocarMusica('music/Dr Dre & Snoop Doggy Dog - Next Episode (Up In Smoke Tour) my-free-mp3s.com .mp3')">Dr Dre & Snoop Doggy Dog - Next Episode</button>
+                    <button onclick="tocarMusica('music/Dr. Dre feat. Eminem - Forgot About Dre my-free-mp3s.com .mp3')">Dr. Dre feat. Eminem - Forgot About Dre</button>
+                </div>
+                
+                </div>
+            </div>        </section>
+    </main>
+
+    <footer>
+        <p>2025 Lan House - Sem Limites. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="music.js"></script>
+    <button id="btnTopo" onclick="subirAoTopo()">▲</button>
+</body>
+</html>

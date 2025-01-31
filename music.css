@@ -1,0 +1,271 @@
+/* 🔹 Fundo da página com imagem responsiva, estrutura */
+body {
+    background: url('images/music-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white; /* Texto branco para melhor visibilidade */
+    font-family: Arial, sans-serif;
+}
+
+/* 🔹 Justifica e centraliza os títulos */
+h1, h2, h3, h4, h5, h6, p {
+    text-align: justify;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* 🔹 Centralizar o título e o parágrafo */
+h2, p {
+    text-align: center;
+    max-width: 800px;  /* Define uma largura máxima para melhor leitura */
+    margin: 10px auto; /* Centraliza horizontalmente */
+}
+
+/* 🔹 Estiliza a seção de música */
+.music-container {
+    background: rgba(0, 0, 0, 0.7);
+    width: 90%;
+    max-width: 900px;
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+/* 🔹 Player de música */
+.player-container {
+    margin: 20px auto;
+}
+
+audio {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* 🔹 Botões para plataformas externas */
+.btn-externo {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.spotify { background: #1DB954; }
+.youtube { background: #FF0000; }
+.deezer  { background: #FF5A5F; }
+
+.btn-externo:hover {
+    opacity: 0.8;
+}
+
+/* 🔹 Lista de músicas */
+.playlist-local {
+    margin-top: 30px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+
+
+
+
+/* 🔹 Botões de seleção de músicas */
+button {
+    background: linear-gradient(45deg, #ffeb3b, #03a9f4);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: black;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+/*ANIMAÇÃO DO FUNDO*/
+@keyframes musicBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 🔥 Animação do fundo */
+@keyframes musicBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 🔥 Fundo animado */
+body {
+    background: linear-gradient(45deg, #ff8a00, #e52e71, #007bff, #8a2be2);
+    background-size: 400% 400%;
+    animation: musicBackground 10s infinite alternate;
+    color: white;  /* 🔥 Texto branco */
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* 🔥 Centralizar títulos */
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 🔥 Ícones brancos */
+h1 i, h2 i, h3 i, h4 i, h5 i, h6 i {
+    color: white !important;
+}
+
+/* 🔥 Botão de voltar ao topo */
+#btnTopo {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 165, 0, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#btnTopo:hover {
+    background: rgba(255, 165, 0, 1);
+}
+
+/* 🔥 Player de música */
+#audio-container {
+    margin: 20px auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+}
+
+audio {
+    width: 100%;
+}
+
+
+/*musica icone em branco*/
+h1 {
+    filter: brightness(200%);
+}
+
+/* 🔥 Estiliza o botão de subir ao topo */
+#btnTopo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* Oculto por padrão */
+    background: linear-gradient(45deg, #e52e71, #007bff);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+/* Efeito hover */
+#btnTopo:hover {
+    background-color: rgb(247, 52, 198);
+}
+
+/* Exibe o botão quando a página estiver no final */
+.mostrar-botao {
+    display: block !important;
+}
+
+
+/*NÃO MECHER*/
+/* 🔥 Numeração automática */
+.coluna-playlist {
+    counter-reset: musica-contador;
+}
+
+/* 🔹 Estiliza os botões das músicas */
+.coluna-playlist button {
+    counter-increment: musica-contador;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0; /* Adiciona espaçamento ao invés de usar <br> */
+    background: linear-gradient(45deg, #ffeb3b, #03a9f4);
+    border: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* 🔹 Adiciona numeração antes do botão */
+.coluna-playlist button::before {
+    content: counter(musica-contador) ". ";
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-right: 8px;
+}
+
+/* 🔥 Medalhas para os 3 primeiros */
+.coluna-playlist button:nth-of-type(1)::before { content: "🥇 " counter(musica-contador) ". "; color: gold; }    /* 1º Lugar - Ouro */
+.coluna-playlist button:nth-of-type(2)::before { content: "🥈 " counter(musica-contador) ". "; color: silver; }  /* 2º Lugar - Prata */
+.coluna-playlist button:nth-of-type(3)::before { content: "🥉 " counter(musica-contador) ". "; color: #cd7f32; } /* 3º Lugar - Bronze */
+
+/* 🔥 Cores para os restantes (4º ao 10º) */
+.coluna-playlist button:nth-of-type(4)::before { color: #ff4500; }  /* 🔥 4º - Laranja Forte */
+.coluna-playlist button:nth-of-type(5)::before { color: #ff8c00; }  /* 🌟 5º - Laranja Claro */
+.coluna-playlist button:nth-of-type(6)::before { color: #008000; }  /* 💚 6º - Verde */
+.coluna-playlist button:nth-of-type(7)::before { color: #0000ff; }  /* 🔵 7º - Azul */
+.coluna-playlist button:nth-of-type(8)::before { color: #4b0082; }  /* 🟣 8º - Roxo */
+.coluna-playlist button:nth-of-type(9)::before { color: #800080; }  /* 💜 9º - Violeta */
+.coluna-playlist button:nth-of-type(10)::before { color: #ff1493; } /* 💖 10º - Rosa Forte */
+
+
+/*API PARA MUSICA SAIR DO PC*/
+/* 🔹 Botão Extra abaixo das playlists */
+.extra-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#discover-music {
+    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#discover-music:hover {
+    transform: scale(1.1);
+    background: linear-gradient(45deg, #e52e71, #007bff);
+}

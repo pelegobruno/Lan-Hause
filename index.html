@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lan House - sem limites</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <h1>Lan House - Sem Limites</h1>
+    <br>
+    <img src="images/Logo.png" alt="Lan House Logo" width="100" height="100" class="logo">
+    <nav>
+      <br>
+      <br>
+      <br>
+      <br>
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="music.html">
+          <img src="images/Conectados Lan House music.jpg" alt="Músicas" width="70" height="70" style="border-radius: 5%; border: 2px solid #fff;">
+      </a>
+        <a href="produtos.html">Produtos</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+</header>
+<main>
+  <section id="sobre" class="sobre">
+      <h2>Sobre a Lan House - Sem Limites!</h2>
+      <p class="centralizado-justificado">
+        Bem-vindo à Lan House - Sem Limites!  
+        Desde junho de 2022, oferecemos um ambiente moderno e confortável para você navegar, trabalhar e se divertir. Contamos com computadores de alto desempenho, internet de alta velocidade e uma variedade de serviços, incluindo impressão, acesso rápido à internet e uma seleção incrível de games. Nosso compromisso é proporcionar serviços digitais de qualidade, com confiabilidade, eficiência e preços acessíveis. Venha nos visitar e aproveite a melhor experiência de Lan House da região!
+    </p>
+    </section>
+    <section id="servicos" class="servicos">
+      <h2>Serviços</h2>
+<ul>
+    <li>✅ Acesso a computadores modernos com alta performance</li>
+    <li>✅ Internet banda larga de alta velocidade</li>
+    <li>✅ Impressão e digitalização de documentos</li>
+    <li>✅ Assistência técnica básica</li>
+    <li>✅ Ampla variedade de jogos</li>
+    <li>✅ Ambiente climatizado e confortável</li>
+</ul>
+
+    </section>
+
+    <section id="little-lan" class="little-lan">
+      <div class="centralizar-texto">
+        <br><br>
+        <img src="images/Little lan.png.jpeg" alt="Ícone do Little Lan" class="little-lan-icon">
+        <p>O Little Lan é o nosso mascote virtual, sempre pronto para te auxiliar e responder às suas dúvidas. Através do chat online, você pode entrar em contato conosco para obter informações sobre nossos serviços, solicitar suporte técnico ou simplesmente bater um papo.</p>
+        <br><br><br>
+        <p id="duvidas-texto" class="duvidas-destaque">📢 Esclareça suas Dúvidas</p>
+    </div>
+    </section>
+    <section id="little-lan" class="little-lan">
+      <div id="chat-container" class="chat-container" >
+        <div id="chat-output"></div>
+        <div class="chat-input-area">
+          <img src="images/Little lan.png.jpeg" alt="Ícone do Little Lan" class="bot-icon">
+          <input type="text" id="chat-input" placeholder="Digite sua pergunta...">
+          <button>Enviar</button>
+        </div>
+      </div>
+    </section>
+    <section>
+      <br><br><br><br><br><br><br><br><br>
+      <section id="contato">
+        <h2>Como chegar até nós</h2>
+        <p>
+          Estamos localizados no “Endereço: da Rua Flávio Santana, - (Antiga Rua X-4), Nº.955 do Bairro: Colina - Guaíba / RS. - CEP: 92700-555”.  - Segue instruções detalhadas de como chegar, incluindo referências e locais para cegar até nós ou clique no mapa (aqui).
+        </p>
+      </section>
+      <div class="contato-container">
+          <div class="contato">
+              <a href="https://wa.me/+555198733012" target="_blank" class="whatsapp">
+                  <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="https://t.me/+555198733012" target="_blank" class="telegram">
+                  <i class="fab fa-telegram"></i> Telegram
+              </a>
+          </div>
+          <iframe 
+              class="mapa"
+              src="https://www.google.com/maps?q=Rua%20Fl%C3%A1vio%20Santana,%20-%20(Antiga%20Rua%20X-4),%20N%C2%BA.955,%20Bairro:%20Colina%20-%20Gua%C3%ADba%20/%20RS.%20-%20CEP:%2092700-555&output=embed" 
+              width="100%" 
+              height="300" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy">
+          </iframe>
+      </div>
+  </section>
+  </main>
+  <footer>
+    <p>© 2025 Todos os direitos reservados de Lan House-Sem Limites.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <button id="btnTopo" onclick="subirAoTopo()">▲</button>
+  <script>
+    function subirAoTopo() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    window.onscroll = function() {
+        let botao = document.getElementById("btnTopo");
+        let alturaPagina = document.documentElement.scrollHeight;
+        let alturaTela = window.innerHeight;
+        let posicaoAtual = window.scrollY + alturaTela;
+
+        // Se o usuário chegar ao fim da página, mostra o botão
+        if (posicaoAtual >= alturaPagina - 10) {
+            botao.classList.add("mostrar-botao");
+        } else {
+            botao.classList.remove("mostrar-botao");
+        }
+    };
+</script>
+</body>
+</html>
