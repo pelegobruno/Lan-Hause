@@ -40,8 +40,33 @@ audio {
     max-width: 600px;
 }
 
+
+/* 🔹 Centraliza o título e a logo */
+.logo-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 🔹 Posiciona o título ACIMA da logo */
+#titulo {
+    margin-bottom: 10px; /* Adiciona um espaçamento entre o texto e a logo */
+    color: white;
+    font-size: 28px; /* Aumente o tamanho, se necessário */
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombras para melhor visibilidade */
+}
+
+/* 🔹 Ajusta a logo */
+.logo {
+    max-width: 100%;
+    height: auto;
+}
+
+
 /* 🔹 Botões para plataformas externas */
-/* Estiliza os botões */
 .btn-externo {
     display: inline-block;
     padding: 0;
@@ -98,8 +123,6 @@ ul {
 li {
     margin: 10px 0;
 }
-
-
 
 
 
@@ -257,18 +280,18 @@ h1 {
 }
 
 /* 🔥 Medalhas para os 3 primeiros */
-.coluna-playlist button:nth-of-type(1)::before { content: "🥇 " counter(musica-contador) ". "; color: gold; }    /* 1º Lugar - Ouro */
-.coluna-playlist button:nth-of-type(2)::before { content: "🥈 " counter(musica-contador) ". "; color: silver; }  /* 2º Lugar - Prata */
-.coluna-playlist button:nth-of-type(3)::before { content: "🥉 " counter(musica-contador) ". "; color: #cd7f32; } /* 3º Lugar - Bronze */
+.coluna-playlist button:nth-of-type(1)::before { content: "🥇 " counter(musica-contador) ". "; color: #0000ff; }    /* 1º Lugar - Ouro */
+.coluna-playlist button:nth-of-type(2)::before { content: "🥈 " counter(musica-contador) ". "; color: #0000ff; }  /* 2º Lugar - Prata */
+.coluna-playlist button:nth-of-type(3)::before { content: "🥉 " counter(musica-contador) ". "; color: #0000ff; } /* 3º Lugar - Bronze */
 
 /* 🔥 Cores para os restantes (4º ao 10º) */
-.coluna-playlist button:nth-of-type(4)::before { color: #ff4500; }  /* 🔥 4º - Laranja Forte */
-.coluna-playlist button:nth-of-type(5)::before { color: #ff8c00; }  /* 🌟 5º - Laranja Claro */
-.coluna-playlist button:nth-of-type(6)::before { color: #008000; }  /* 💚 6º - Verde */
+.coluna-playlist button:nth-of-type(4)::before { color: #0000ff; }  /* 🔥 4º - Laranja Forte */
+.coluna-playlist button:nth-of-type(5)::before { color: #0000ff; }  /* 🌟 5º - Laranja Claro */
+.coluna-playlist button:nth-of-type(6)::before { color: #0000ff; }  /* 💚 6º - Verde */
 .coluna-playlist button:nth-of-type(7)::before { color: #0000ff; }  /* 🔵 7º - Azul */
-.coluna-playlist button:nth-of-type(8)::before { color: #4b0082; }  /* 🟣 8º - Roxo */
-.coluna-playlist button:nth-of-type(9)::before { color: #800080; }  /* 💜 9º - Violeta */
-.coluna-playlist button:nth-of-type(10)::before { color: #ff1493; } /* 💖 10º - Rosa Forte */
+.coluna-playlist button:nth-of-type(8)::before { color: #0000ff; }  /* 🟣 8º - Roxo */
+.coluna-playlist button:nth-of-type(9)::before { color: #0000ff; }  /* 💜 9º - Violeta */
+.coluna-playlist button:nth-of-type(10)::before { color: #0000ff; } /* 💖 10º - Rosa Forte */
 
 
 /*API PARA MUSICA SAIR DO PC*/

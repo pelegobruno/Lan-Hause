@@ -376,6 +376,13 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0;
 }
 
+/* Aplicando cor preta aos serviços */
+.servico {
+  color: black;
+  font-weight: bold;
+}
+
+
 .servicos li {
     font-size: 18px;
     margin: 10px 0;
