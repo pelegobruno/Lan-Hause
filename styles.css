@@ -23,6 +23,174 @@ body {
   margin: 20px;
 }
 
+
+
+
+
+
+
+/* Importando fonte futurista */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Estilo global */
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: #101010;
+    color: white;
+}
+
+/* Botão para abrir o chat */
+#chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(45deg, #00ffff, #007bff);
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.5);
+    transition: 0.3s;
+}
+
+#chat-toggle:hover {
+    background: linear-gradient(45deg, #007bff, #00ffff);
+}
+
+/* Caixa de chat */
+#chat-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 380px;
+    height: 520px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0px 0px 12px rgba(0, 255, 255, 0.8);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animação ao abrir */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cabeçalho do chat */
+#chat-header {
+    background: linear-gradient(45deg, #00ffff, #007bff);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 15px 15px 0 0;
+}
+
+/* Ícone de fechar */
+#close-chat {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#close-chat:hover {
+    color: #ff5555;
+}
+
+/* Área de mensagens */
+#chat-output {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mensagem */
+.message {
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
+    max-width: 85%;
+    word-wrap: break-word;
+    white-space: pre-line;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Mensagem do usuário */
+.user-message {
+    background-color: rgba(0, 255, 255, 0.2);
+    border-left: 4px solid #00ffff;
+    align-self: flex-end;
+    text-align: right;
+}
+
+/* Mensagem do bot */
+.bot-message {
+    background-color: rgba(0, 0, 255, 0.2);
+    border-left: 4px solid #007bff;
+    text-align: left;
+}
+
+/* Digitando... */
+.typing-indicator {
+    color: gray;
+    font-style: italic;
+    font-size: 12px;
+}
+
+/* Caixa de entrada */
+#chat-input-container {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #007bff;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 0 0 15px 15px;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #00ffff;
+    border-radius: 5px;
+    font-size: 14px;
+    background: black;
+    color: white;
+}
+
+#send-btn {
+    background: linear-gradient(45deg, #007bff, #00ffff);
+    border: none;
+    color: white;
+    padding: 12px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+#send-btn:hover {
+    background: linear-gradient(45deg, #00ffff, #007bff);
+}
+
+
+
+
+
 p {
   font-family: 'Lora', serif; /* Fonte mais elegante e confortável */
   font-size: 17px;
@@ -132,41 +300,6 @@ footer {
   margin: 1rem 0;
 }
 
-/* Chat */
-#chat-container {
-  background: #222;
-  padding: 1rem;
-  border-radius: 10px;
-  max-width: 500px;
-  margin: auto;
-}
-
-#chat-output {
-  height: 200px;
-  overflow-y: auto;
-  border: 1px solid #444;
-  background: #333;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 5px;
-}
-
-.chat-input-area {
-  display: flex;
-  align-items: left;
-}
-
-.bot-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-
-#chat-input {
-  flex-grow: 1;
-  padding: 0.5rem;
-  margin-right: 1rem;
-}
 
 /* Botão geral */
 button {

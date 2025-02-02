@@ -6,6 +6,7 @@
   <title>Lan House - sem limites</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <title>Little Lan - Chat</title>
 </head>
 <body>
   <header>
@@ -56,18 +57,46 @@
         <p id="duvidas-texto" class="duvidas-destaque">📢 Esclareça suas Dúvidas</p>
     </div>
     </section>
-    <section id="little-lan" class="little-lan">
-      <div id="chat-container" class="chat-container" >
-        <div id="chat-output"></div>
-        <div class="chat-input-area">
-          <img src="images/Little lan.png.jpeg" alt="Ícone do Little Lan" class="bot-icon">
-          <input type="text" id="chat-input" placeholder="Digite sua pergunta...">
-          <button>Enviar</button>
+    <!-- Seção do Little Lan no site -->
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Little Lan - Chat</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+    
+        <!-- Botão para abrir o chat -->
+        <button id="chat-toggle">💬 Falar com Little Lan</button>
+    
+        <!-- Caixa de chat -->
+        <div id="chat-container">
+            <div id="chat-header">
+                <span>💬 Little Lan</span>
+                <button id="close-chat">❌</button>
+            </div>
+            <div id="chat-output"></div>
+            <div id="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+                <button id="send-btn">➤</button>
+            </div>
         </div>
-      </div>
-    </section>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>
+    
+
+<script>
+  document.getElementById("open-little-py").addEventListener("click", function() {
+      window.open("little.py", "_blank");
+  });
+</script>
+
     <section>
-      <br><br><br><br><br><br><br><br><br>
+      <br><br><br>
       <section id="contato">
         <h2>Como chegar até nós</h2>
         <p>

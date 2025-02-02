@@ -1,137 +1,4 @@
-// Lista de respostas e gatilhos para conversas modernas e informações do site
-const responses = {
-    greetings: [
-        "E aí, beleza? Como posso te ajudar?",
-        "Oi! Tudo tranquilo? Bora conversar.",
-        "Fala aí! Tá precisando de algo?"
-    ],
-    services: [
-        "Oferecemos serviços de impressão, digitalização, e envio de documentos. O que você tá procurando exatamente?",
-        "Precisa imprimir ou enviar documentos? Manda aí o que precisa, que te ajudo!",
-        "Impressões coloridas, preto e branco, digitalizações... Temos de tudo! Quer mais detalhes sobre preços?"
-    ],
-    prices: [
-        "As impressões começam a partir de R$ 0,50 por folha em preto e branco. Quer saber mais detalhes?",
-        "Impressões coloridas são R$ 1,50 por folha. Se precisar de algo diferente, me fala!",
-        "Digitalizações custam R$ 1,00 por página. Qualquer dúvida, tô aqui!"
-    ],
-    dont_know: [
-        "Hmm, não sei te ajudar com isso agora. Quer que eu te encaminhe pra um encantador?",
-        "Cara, tô meio perdido aqui... Quer falar com um encantador pra resolver?",
-        "Acho que não sei como resolver isso. Posso te passar pro nosso encantador, o que acha?"
-    ],
-    redirect_message: `Olá! Fui redirecionado pelo *Little Lan* e gostaria de mais informações sobre seus serviços além dos que ele já me apresentou no site.`
-};
-
-// Palavras positivas para confirmar o redirecionamento
-const positiveWords = ["sim", "claro", "aham", "pode ser", "ok", "quero", "tudo bem", "isso", "simples"];
-
-// Número do Telegram da empresa
-const telegramNumber = "+5551998733012";
-let waitingForRedirectConfirmation = false;
-
-// Função para enviar mensagens ao clicar no botão ou pressionar Enter
-function sendMessage(event) {
-    if (event.type === "click" || (event.type === "keypress" && event.key === "Enter")) {
-        const input = document.getElementById("chat-input");
-        const output = document.getElementById("chat-output");
-        const message = input.value.trim();
-
-        if (message === "") return;
-
-        // Adicionar mensagem do usuário
-        const userMessage = document.createElement("div");
-        userMessage.textContent = "Você: " + message;
-        userMessage.style.color = "lightblue";
-        output.appendChild(userMessage);
-
-        // Adicionar "digitando" para o bot
-        const typingIndicator = document.createElement("div");
-        typingIndicator.textContent = "Little Lan está digitando...";
-        typingIndicator.style.color = "gray";
-        typingIndicator.id = "typing-indicator";
-        output.appendChild(typingIndicator);
-
-        // Simular tempo de resposta do bot (2 a 3 segundos)
-        setTimeout(() => {
-            output.removeChild(typingIndicator); // Remover "digitando"
-
-            const botMessage = document.createElement("div");
-            botMessage.textContent = "Little Lan: " + getBotResponse(message);
-            botMessage.style.color = "lightgreen";
-            output.appendChild(botMessage);
-
-            // Rolar para a parte inferior do chat
-            output.scrollTop = output.scrollHeight;
-
-            // Limpar input
-            input.value = "";
-        }, Math.random() * 1000 + 2000); // Tempo aleatório entre 2 e 3 segundos
-    }
-}
-
-// Função para obter resposta do Little Lan
-function getBotResponse(userMessage) {
-    const lowerCaseMessage = userMessage.toLowerCase();
-
-    if (waitingForRedirectConfirmation) {
-        // Se estamos esperando a confirmação do redirecionamento
-        if (positiveWords.some((word) => lowerCaseMessage.includes(word))) {
-            waitingForRedirectConfirmation = false; // Reseta o estado
-            return addTelegramButton();
-        } else {
-            waitingForRedirectConfirmation = false; // Reseta o estado
-            return "Beleza, seguimos por aqui! Me fala mais o que precisa.";
-        }
-    }
-
-    // Gatilhos de conversa baseados na mensagem do usuário
-    if (lowerCaseMessage.includes("olá") || lowerCaseMessage.includes("oi")) {
-        return getRandomResponse(responses.greetings);
-    } else if (lowerCaseMessage.includes("serviço") || lowerCaseMessage.includes("impressão") || lowerCaseMessage.includes("documento")) {
-        return getRandomResponse(responses.services);
-    } else if (lowerCaseMessage.includes("preço") || lowerCaseMessage.includes("valor")) {
-        return getRandomResponse(responses.prices);
-    } else {
-        // Caso o bot não saiba a resposta, pergunta sobre o encantador
-        waitingForRedirectConfirmation = true;
-        return getRandomResponse(responses.dont_know);
-    }
-}
-
-// Função para obter uma resposta aleatória de um array
-function getRandomResponse(responseArray) {
-    return responseArray[Math.floor(Math.random() * responseArray.length)];
-}
-
-// Função para adicionar o botão do Telegram
-function addTelegramButton() {
-    const output = document.getElementById("chat-output");
-
-    const telegramDiv = document.createElement("div");
-    telegramDiv.innerHTML = `
-        <a href="https://t.me/${telegramNumber}?text=${encodeURIComponent(responses.redirect_message)}" target="_blank" style="text-decoration: none;">
-            <button style="background-color: #0088cc; border: none; padding: 10px; border-radius: 50%; cursor: pointer;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width: 24px; height: 24px;">
-            </button>
-        </a>
-    `;
-    output.appendChild(telegramDiv);
-
-    return "Beleza! Clique no botão do Telegram pra falar com um encantador.";
-}
-
-// Adicionar evento ao botão e ao pressionar Enter
-document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("chat-input");
-    const button = document.querySelector("button");
-
-    button.addEventListener("click", sendMessage);
-    input.addEventListener("keypress", sendMessage);
-});
-
-
-/* não mexer Little lan*/
+/* Movimento automático e efeito ao passar o mouse no ícone Little Lan */
 document.addEventListener("DOMContentLoaded", function () {
     const littleLan = document.querySelector(".little-lan-icon");
 
@@ -153,25 +20,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
+/* Botão para mostrar/ocultar detalhes dos serviços */
 document.addEventListener("DOMContentLoaded", function () {
     const btn = document.getElementById("toggleDetalhes");
     const detalhes = document.getElementById("detalhesServicos");
 
-    btn.addEventListener("click", function () {
-        detalhes.classList.toggle("mostrar");
+    if (btn && detalhes) {
+        btn.addEventListener("click", function () {
+            detalhes.classList.toggle("mostrar");
 
-        // Alterar o texto do botão
-        if (detalhes.classList.contains("mostrar")) {
-            btn.textContent = "Ocultar detalhes ⬆️";
-        } else {
-            btn.textContent = "Ver detalhes ⬇️";
-        }
-    });
+            // Alterar o texto do botão
+            if (detalhes.classList.contains("mostrar")) {
+                btn.textContent = "Ocultar detalhes ⬆️";
+            } else {
+                btn.textContent = "Ver detalhes ⬇️";
+            }
+        });
+    }
 });
 
-
-/* radio music*/
+/* Player de música */
 function playMusic(track) {
     let player = document.getElementById("musicPlayer");
     let source = document.getElementById("musicSource");
@@ -189,3 +57,204 @@ function playMusic(track) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const ChatBot = {
+    whatsappNumber: "+5551998733012",
+    telegramNumber: "+5551998733012", // Número do Telegram
+    chatContainer: null,
+    input: null,
+    output: null,
+    isNewClient: null,
+    userName: "",
+    userPhone: "",
+
+    // Inicializa o chatbot
+    init: function () {
+        this.chatContainer = document.getElementById("chat-container");
+        this.input = document.getElementById("chat-input");
+        this.output = document.getElementById("chat-output");
+
+        if (!this.chatContainer || !this.input || !this.output) {
+            console.error("❌ Elementos do chat não encontrados!");
+            return;
+        }
+
+        document.getElementById("chat-toggle").addEventListener("click", this.openChat.bind(this));
+        document.getElementById("close-chat").addEventListener("click", this.closeChat.bind(this));
+        document.getElementById("send-btn").addEventListener("click", this.sendMessage.bind(this));
+        this.input.addEventListener("keypress", (event) => {
+            if (event.key === "Enter") this.sendMessage();
+        });
+
+        this.displayMessage("Little Lan", this.getResponse("greetings"), "bot-message");
+    },
+
+    // Abre o chat
+    openChat: function () {
+        this.chatContainer.style.display = "flex";
+    },
+
+    // Fecha o chat
+    closeChat: function () {
+        this.chatContainer.style.display = "none";
+    },
+
+    // Envia mensagem e processa resposta
+    sendMessage: function () {
+        const message = this.input.value.trim();
+        if (message === "") {
+            alert("Por favor, digite uma mensagem.");
+            return;
+        }
+
+        this.displayMessage("Você", message, "user-message");
+
+        // Simula efeito de "digitando..."
+        const typingIndicator = document.createElement("div");
+        typingIndicator.textContent = "Little Lan está digitando...";
+        typingIndicator.classList.add("typing-indicator");
+        this.output.appendChild(typingIndicator);
+        this.output.scrollTop = this.output.scrollHeight;
+
+        // Responde após 2 segundos
+        setTimeout(() => {
+            this.output.removeChild(typingIndicator);
+            this.displayMessage("Little Lan", this.getResponse(message), "bot-message");
+        }, 2000);
+
+        this.input.value = "";
+    },
+
+    // Exibe mensagens no chat
+    displayMessage: function (sender, text, type) {
+        const messageElement = document.createElement("div");
+        messageElement.innerHTML = `<strong>${sender}:</strong><br>${text}`;
+        messageElement.classList.add("message", type);
+        this.output.appendChild(messageElement);
+        this.output.scrollTop = this.output.scrollHeight;
+    },
+
+    // Responde ao usuário baseado nas opções
+    getResponse: function (message) {
+        const responses = {
+            greetings: `👋 Olá! Bem-vindo à Lan House! Como posso te ajudar?<br><br>
+                1️⃣ *Serviços disponíveis*<br>
+                2️⃣ *Preços*<br>
+                3️⃣ *Falar com um atendente*<br>
+                4️⃣ *Músicas mais tocadas*`,
+
+            services: `📌 *Temos os seguintes serviços:*<br><br>
+                1️⃣ *Impressão* (colorida e preto e branco)<br>
+                2️⃣ *Digitalização de documentos*<br>
+                3️⃣ *Envio de documentos*<br>
+                4️⃣ *Acesso à internet*<br><br>
+                Gostaria de mais alguma coisa?<br>
+                (A) Voltar ao menu principal<br>
+                (B) Falar com um atendente`,
+
+            prices: `💰 *Aqui estão os preços:*<br><br>
+                📄 *Impressão Preto e Branco* → R$ 0,50 por folha<br>
+                🖨️ *Impressão Colorida* → R$ 1,50 por folha<br>
+                📃 *Digitalização* → R$ 1,00 por página<br><br>
+                Gostaria de mais alguma coisa?<br>
+                (A) Voltar ao menu principal<br>
+                (B) Falar com um atendente`,
+
+            ask_if_client: `📞 Você já é cliente?<br><br>
+                1️⃣ Sim, sou cliente frequente<br>
+                2️⃣ Não, sou um novo cliente`
+        };
+
+        const lowerCaseMessage = message.toLowerCase();
+
+        if (this.isNewClient === null) {
+            if (lowerCaseMessage.includes("sim") || lowerCaseMessage === "1") {
+                this.isNewClient = false;
+                return this.redirectToTelegram();
+            } else if (lowerCaseMessage.includes("não") || lowerCaseMessage.includes("nao") || lowerCaseMessage === "2") {
+                this.isNewClient = true;
+                return "📝 Por favor, informe seu *NOME* para cadastro.";
+            }
+        } else if (this.isNewClient && this.userName === "") {
+            this.userName = message;
+            return "📞 Agora, informe seu *NÚMERO DE TELEFONE* para completar o cadastro.";
+        } else if (this.isNewClient && this.userPhone === "") {
+            this.userPhone = message;
+            return this.completeRegistration();
+        }
+
+        if (lowerCaseMessage === "1") return responses["services"];
+        if (lowerCaseMessage === "2") return responses["prices"];
+        if (lowerCaseMessage === "3") return responses["ask_if_client"];
+        if (lowerCaseMessage === "4") return this.getTop10Music();
+        if (lowerCaseMessage === "a") return responses["greetings"];
+        if (lowerCaseMessage === "b") return responses["ask_if_client"];
+
+        return responses["greetings"];
+    },
+
+    // Finaliza cadastro e direciona para atendimento
+    completeRegistration: function () {
+        return `✅ Cadastro concluído!<br><br>
+        Nome: *${this.userName}*<br>
+        Telefone: *${this.userPhone}*<br><br>
+        Agora, clique no botão abaixo para falar com um atendente no Telegram:<br><br>
+        <a href="https://t.me/${this.telegramNumber}" target="_blank">
+            <button style="background-color: #0088cc; border: none; padding: 10px; border-radius: 5px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="20" style="vertical-align: middle;">
+                📩 Falar com um atendente
+            </button>
+        </a>`;
+    },
+
+    // Redireciona diretamente para o Telegram caso já seja cliente
+    redirectToTelegram: function () {
+        return `👋 *Você é um cliente frequente!*<br><br>
+        Clique no botão abaixo para falar conosco no Telegram:<br><br>
+        <a href="https://t.me/${this.telegramNumber}" target="_blank">
+            <button style="background-color: #0088cc; border: none; padding: 10px; border-radius: 5px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" width="20" style="vertical-align: middle;">
+                Falar no Telegram
+            </button>
+        </a>`;
+    },
+
+    // Retorna a lista dos 10 mais tocados
+    getTop10Music: function () {
+        return `🎵 *Aqui estão os 10 mais tocados na Rádio Lan:*<br>
+        <a href="http://127.0.0.1:5500/lan_house/music.html" target="_blank">
+            <button style="background-color: #25D366; border: none; padding: 10px; border-radius: 5px;">
+                🎧 Ouvir as músicas
+            </button>
+        </a>`;
+    }
+};
+
+// Inicializa o chatbot após o carregamento da página
+document.addEventListener("DOMContentLoaded", function () {
+    ChatBot.init();
+});
